@@ -22,7 +22,7 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`);
     };
     grade(Student, subject) {
-        console.log(`${student.name} recieves a perfect score on ${subject}`);
+        console.log(`${Student.name} recieves a perfect score on ${subject}`);
     };
 }
 
@@ -54,7 +54,7 @@ class ProjectManager extends Instructor {
         console.log(`${this.name} announces to ${channel}, @channel standy times!`);
     };
     debugsCode(Student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        console.log(`${this.name} debugs ${Student.name}'s code on ${subject}`);
     };
 };
 
@@ -82,23 +82,24 @@ const josh = new Instructor({
 
 const michael = new ProjectManager({
     name: 'Michael',
-    location: 'Utah',
-    age: 35,
+    location: 'New York',
+    age: 24,
     gender: 'male',
     favLanguage: 'React',
     specialty: 'Full Stack',
-    catchPhrase: `Waddup`,
-    gradClassName: ''
+    catchPhrase: `Erick you need to commit more`,
+    gradClassName: 'FSW 14',
+    favInstructor: 'Josh',
   });
   
 
 
 
-// console.log(josh.speak());
-// console.log(josh.grade(joe, `javascript`));
-// console.log(josh.demo(`javascript`));
-// console.log(joe.listsSubjects());
-// console.log(joe.PRAssignment(`javascript IV`));
-// console.log(joe.sprintChallenge(`javascript-IV`));
-// console.log(luis.standUp(`fsw14-luis`));
-// console.log(luis.debugsCode(joe, `javascript`));
+console.log(josh.speak());
+console.log(josh.grade(erick, `javascript`));
+console.log(josh.demo(`javascript`));
+console.log(erick.listsSubjects());
+console.log(erick.PRAssignment(`javascript IV`));
+console.log(erick.sprintChallenge(`javascript IV`));
+console.log(michael.standUp(`WEB17-michael`));
+console.log(michael.debugsCode(erick, `javascript`));
