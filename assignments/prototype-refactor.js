@@ -7,40 +7,41 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
-function GameObject (attributes) {
-  
+class GameObject {
+  constructor(attributes) {
     this.createdAt = attributes.createdAt;
     this.dimensions = attributes.dimensions;
   };
   
-  GameObject.prototype.destroy = function() {
-    return `${this.name} was removed from the game`;
+  destroy() {
+    return (`${this.name} was removed from the game`);
   }
+}
 
-  function CharacterStats(statsAttributes) {
-    GameObject.call(this, statsAttributes);
+class CharacterStats extends GameObject {
+  constructor(statsAttributes) {
+    super(statsAttributes);
     this.healthPoints = statsAttributes.healthPoints;
     this.name = statsAttributes.name;
   };
   
-  CharacterStats.prototype = GameObject.prototype;
-  
-  CharacterStats.prototype.takeDamage = function() {
-      return `${this.name} took damage.`;
+  takeDamage() {
+      return (`${this.name} took damage.`);
   };
+}
 
-  function Humanoid(humanAttributes) {
-    CharacterStats.call(this, humanAttributes);
+class Humanoid extends CharacterStats {
+  constructor(humanAttributes) {
+    super(humanAttributes);
     this.team = humanAttributes.team;
     this.weapons = humanAttributes.weapons;
     this.language = humanAttributes.language;
   };
   
-  Humanoid.prototype = GameObject.prototype;
-  
-  Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}`;
-  };
+  greet() {
+    return (`${this.name} offers a greeting in ${this.language}`);
+  }
+}
 
   const mage = new Humanoid({
     createdAt: new Date(),
